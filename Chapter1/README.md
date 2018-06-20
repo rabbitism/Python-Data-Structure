@@ -1,6 +1,5 @@
 # BASIC PYTHON PROGRAMMING
 ## BASIC PROGRAM ELEMENTS
----
 ### Programs and Modules
 A Python program consists of one or more modules. A module is just a file of Python code, which can include statements, function definitions, and class definitions. 
 
@@ -43,6 +42,7 @@ See sample of string print [here](Chapter1/StringLiterals.py).
 |Logical Operators|`and`, `or`, `not`|`0`, `None`, empty string, list are `false`|
 |Subscript operator|[]||
 |Selector operator|.|used to refer to a named item in a module, class, or object|
+
 The operators have a standard precedence (selector, function call, subscript, arithmetic, comparison, logical, assignment.)
 
 The `**` and `=` operators are right associative, whereas the others are left associative
@@ -87,7 +87,6 @@ from math import pi, sqrt
 ```
 
 ## CONTROL STATEMENTS
----
 ### Conditional Statements
 keyword: `if`, `elif`, `else`
 Syntax: 
@@ -132,7 +131,6 @@ the slice returns a substring starting with the character at the lower index and
 See sample code [here](Chapter1/StringFormatting.py)
 
 ##  BUILT-IN PYTHON COLLECTIONS AND THEIR OPERATIONS
----
 ### Lists
 A list is a sequence of zero or more Python objects, commonly called items. Use square brackets to enclose, separated by commas.
 ```python
@@ -178,10 +176,10 @@ For dictionaries, the methods `get` and `pop` can take two arguements: A key and
 Omitted.
 
 ## CREATING NEW FUNCTIONS
-
 ### Function Definitions
 Syntax:
 ```python
 def <function name>(<list of parameters):
     <sequence of statements>
 ```
+See naming convention [here](### Naming Convention).

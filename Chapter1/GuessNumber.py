@@ -1,8 +1,3 @@
-"""
-Author: Ken Lambert
-Plays a game of guess the number with the user.
-"""
-
 import random
 
 def main():

@@ -4,7 +4,7 @@
 A Python program consists of one or more modules. A module is just a file of Python code, which can include statements, function definitions, and class definitions. 
 
 ### An Example Python Program: Guessing a Number
-See Sample Code [here](/GuessNumber.py).
+See Sample Code [here](/Chapter1/GuessNumber.py).
 
 ### Programming Comments
 Single line comments start with #
@@ -32,7 +32,7 @@ Python uses white space (spaces, tabs, or line breaks) to mark the syntax of man
 Numbers(integers and floating-point numbers) are written as they are in other programming languages. The Boolean values `True` and `False` are keywords.
 
 ### String Literals
-See sample of string print [here](/StringLiterals.py).
+See sample of string print [here](/Chapter1/StringLiterals.py).
 
 ### Operators and Expressions
 |Type|Example|Comments|
@@ -60,7 +60,7 @@ The standard output function `print` displays its arguments on the console. By d
 The standard input function `input` waits for the user to enter text at the keyboard. When the user presses the Enter key, the function returns a string containg the characters entered. 
 
 ### Type COnversion Functions and Mixed-Mode Operations
-See sample code [here](/TypeConversion.py).
+See sample code [here](/Chapter1/TypeConversion.py).
 
 ### Optional and Keyword Function Argument
 Functions may allow optional arguments. Required arguments have no default values, Optional arguments have default values and can appear in any order when their keywords are used, as long as they come after the required arguments.
@@ -128,7 +128,7 @@ the slice returns a substring starting with the character at the lower index and
 ```
 
 ### Formatting Strings for Output
-See sample code [here](/StringFormatting.py)
+See sample code [here](/Chapter1/StringFormatting.py)
 
 ##  BUILT-IN PYTHON COLLECTIONS AND THEIR OPERATIONS
 ### Lists
@@ -187,4 +187,60 @@ See naming convention [here](#naming-convention).
 ### Recursive Functions
 A recursive function is a function that calls itself. It must contain at least one selection statement.
 
-See sample code [here](/Functions.py)
+See sample code [here](/Chapter1/Functions.py)
+
+## Higher Order Functions
+Python functions are first-class data objects. This means you can assign them to variables, save them in data structures, pass them to other functions, and return them as the values of other functions.
+
+A higher-order function is a function that receives another function as an argument and applies it in some way. 
+map:
+```python
+#Option 1:
+newList=[]
+for number in oldList: newList.append(str(number))
+
+#Option 2:
+newList = list(map(str, oldList))
+```
+filter:
+```python
+#Option 1:
+newList=[]
+for number in oldList:
+    if number>0: newList.append(number)
+
+#Option 2:
+newList = list(filter(isPositive, oldList))
+```
+
+### Creating Anonymous Functions with lambda
+Syntax:
+```python
+lambda<argument list>:<expression>
+```
+
+## CATCHING EXCEPTIONS
+Syntax:
+```python
+try: 
+    <statements>
+except <exception type>:
+    <statements>
+```
+See sample code [here](/Chapter1/ExceptionSample.py)
+
+## Files and Their Operations
+TODO
+
+## Creating New Classes
+A class decribes the data and the methods pertaining to a set of objects. It provides a blueprint for creating objects and the code to execute when methods are called on them. All data types in Python are classes.
+
+Syntax:
+```python
+def<class name>(<parent class name>):
+    <class variable assignments>
+    <instance method definitions>
+```
+See naming convention [here](#naming-convention)
+The parent class name is optional, in which case it is assumed to be object. All python classes belong to a hierarchy, with object at the root. 
+See sample code [here](/Chapter1/ClassSample.py)

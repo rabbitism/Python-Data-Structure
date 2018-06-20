@@ -26,6 +26,7 @@ See sample code for counting [iterations](/Chapter3/counting.py) and [Fibonacci 
 ## COMPLEXITY ANALYSIS
 ### Order of Compexity
 Some sample orders of compexity
+
 |n|Logarithmic|Linear|Quadratic|Exponential|
 |:---|:---|:---|:---|:---|
 |100|7|100|10,000|Off the chart|

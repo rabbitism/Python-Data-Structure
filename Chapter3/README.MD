@@ -69,3 +69,6 @@ Complexity: O(n^2)
 Complexity: O(n^2)
 ### Insertion Sort
 Complexity: O(n^2)
+
+## FASTER SORTING
+See sample code [here](/Chapter3/sort.py)

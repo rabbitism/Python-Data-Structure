@@ -68,3 +68,4 @@ Complexity: O(n^2)
 ### Bubble Sort
 Complexity: O(n^2)
 ### Insertion Sort
+Complexity: O(n^2)

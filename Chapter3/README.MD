@@ -72,3 +72,15 @@ Complexity: O(n^2)
 
 ## FASTER SORTING
 See sample code [here](/Chapter3/sort.py)
+
+
+## AN EXPONENTIAL ALGORITHM: RECURSIVE FIBONACCI
+See sample code [here](/Chapter3/fib.py)
+
+Exponential algorithms are generally impractical to run with any but very small problem sizes.
+
+Note tha `fib(4)` requires only 4 recursive calls, which seems linear, but `fib(6)` requires 2 calls of fib(4), among a total of 14 recursive calls. Indeed, it gets much worse as the problem size grows, with possibly many repetitions of the same subtrees in the call tree. This is clearly the behavior of an exponential O(k^n) algorithm.
+
+### Converting Fibonacci to a Linear Algorithm
+See sample code [here](/Chapter3/fib.py)
+

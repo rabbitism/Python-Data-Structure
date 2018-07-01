@@ -16,7 +16,7 @@ print(lyst)
 
 lyst = []
 for count in range(1000):
-    lyst.append(random.randint(1, 20))
+    lyst.append(random.randint(1, 200))
 print(lyst)
 sort.quicksort(lyst)
 print(lyst)

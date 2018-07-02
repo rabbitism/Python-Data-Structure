@@ -1,4 +1,6 @@
 # CHapter 4: ARRAYS AND LINKED STRUCTURES
+**This chapter talks about data structures in sample code. It is not specific data structure built in Python.**
+
 The two data structures most often used to implement collections in programming languages are *arrays* and *linked structures*
 
 ## THE ARRAY DATA STRUCTURE
@@ -73,3 +75,102 @@ Table: The Running Times of Array Operations
 |Remove from *i*th position|O(n), average case|
 |Increase capacity|O(n), best and worst cases|
 |Decrease capacity|O(n), best and worst cases|
+
+## TWO-DIMENSIONAL ARRAYS(GRID)
+### Processing a Grid
+### Ragged Grids and Multidimensional Arrays
+
+## LINKED STRUCURES
+After arrays, linked structures are probably the most commonly used data structures. A linked structure is a concrete data type that implements many types of collections, including lists. 
+
+### Singly Linked Structures and Doubly Linked Structures
+A linked structure consists of items that are linked to other items. THe two simplest linked structures are the *singly linked structure* and the *doubly linked structure*.
+
+A user of a singly linked structure access the first item by following a single external **head link**. The user then access other items by chaining through the single links that emanate from the items. Thus, in a singly linked structure, **it is easy to get to the successor of an item, but not so easy to get to the predeccessor of an item.**
+
+A doubly linked structure contains links running in both directions. Thus, it is easy for the user to mvoe to an items's successor or to its predecessor. A second externla link called the **tail link**, allows the user of a doubly linked structure to access the last item directly.
+
+The last item in either type of linked structure has no link to the next item. the first item in a doubly linked structure has no link to the preceding item.
+
+Like arrays, these linked structures represent linear sequences of items. However, the programmer who uses a linked structure cannot immediately access an item by specifying its index position.Instead, the programmer must start at one end of the structure and follow the links until the desire position or item is reached.
+
+They way in which memory is allocated form linked structure is also different from array and has two important consequences for insertion and removal operations:
+* Onece an insertion or removal point has been found, the insetion or removal can take place with no shifting of data items in memory.
+* The linked structure can be resized during each insertion or removal with no extra memory and no copying of data items.
+
+### Noncontiguous Memory and Nodes
+A linked structure decouples the logical sequence of items in the structure from any ordering in memory. That is, the cell for a given item in a linked structure can be found anywhere in memory as long as computer can follow a link to its address or location. This kind of memory representation scheme is called **noncontiguous memory**.
+The basic unit of representation in a linked structure is a node. A singly linked node contains the following components or fileds:
+* A data item
+* A link to the next node in the structure.
+* (In addition, a doubly linked node contains a link to the previous node in the structure. )
+
+#### Implementation of Linked structure in different languages.
+1. In early languages like FORTRAN, use two parallel arrays. The first one stores data items, the other array contained the index positions.
+2. In C++/Pascal, a node contains a data item and a pointer value.
+3. Python and other: using references to object. defines a singly linked node by defining an object that contains two fields: a reference to a data item and a reference to antoehr node. 
+
+### Defining a Singly Linked Node Class
+See sample code [here](/Chapter4/Node.py)
+
+### Using the Singly Linked Node Class
+See sample code [here](/Chapter4/Node.py)
+
+In general, you can guard again exceptions by asking whether a given node variable is `None` before attempting to access its fileds:
+```python
+if nodeVariable != Node:
+    <access a field in nodeVarialbe>
+```
+See sample code [here](/Chapter4/testnode.py)
+
+Note the following points about this sample program:
+* One pointer, head, generates the linked structure. This pointer is manipulated in such a way that the most recently inserted item is always at the beginning of the structure.
+* Thus, when the data are displayed, they appear in the reverse order of their insertion.
+* Also, when the data are displayed, the head pointer is reset to the next node, until the head pointer becomes `None`. Thus, at the end of this process, the nodes are effectively deleted from the linked structure. They are no longer available to the program and are recycled during the next garbage collection.
+
+## Operations on Singly Linked Structures
+Almost all the operations on array are indexed based. This section explores how these maniulations are performed in common operations such as traversals, inertions, and removals.
+### Traversal
+[This sample code](/Chapter4/testnode.py) removed each node form the linked structure. But sometimes we only need to visit. Thus we need t temporary pointer. This is called a **traversal**
+See sample code [here](/Chapter/nodeManipulation.py)
+
+In general, a traversal of a singly linked structure visits evey node and terminates when an empty link is reached. Thus, the value `None` serves as a `sentinel` that stops the process.
+**Traversals are linear in time and require no extra memory**.
+
+## Searching
+The sequential search of a linked structure resoembles a traversal in that you must start at the first node and follow the links until you reach a sentinel. There are two possible sentinels:
+1. The empty link, indicating that there are no more data items to examine.
+2. A data item that equals the target item, indicating a successful search.
+
+See sample code [here](/Chapter/nodeManipulation.py)
+
+On average, the sequential search is linear for singly linked structures. Unfortunately, accessing the *i*th item of a linked structure is also a sequential search operation.
+
+Linked structures do not support random access. Thus you cannot search a singly linked structure whose data are in sorted order as efficiently as in array. However, there are ways to organize the data in other types of linked structures to remedy this defect.
+
+### Replacement
+Same as traversal
+
+### Inserting at the Beginning
+```python
+head = Node(newItem, head)
+```
+There is no need for extra memory. This means that inserting data at the beginning of a linked structure uses constant time and memory.
+
+### Inserting at the End
+Inserting an item at the end of an array requires constant time and memory unless the array must be resized. The same process for a singly linked structure must consider two cases:
+* The head pointer is None, so the head pointer is set to the new node.
+* The head pointer is not None, so the code searches for the last node and aims its next pointer at the new node.
+
+See sample code [here](/Chapter/nodeManipulation.py)
+
+### Removing at the Beginning
+```pyhton
+head = head.next
+```
+
+### Removing at the End
+Removing an item at the end of an array requires constant time and memory unless you must resize the array. For linked structure, there are two cases to consider:
+1. There is just one node, the `head` pointer is set to None
+2. There is a node before the last node. THe code searches for this second to last node and sets its next pointer to None.
+

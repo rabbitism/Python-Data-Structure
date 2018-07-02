@@ -162,7 +162,7 @@ Inserting an item at the end of an array requires constant time and memory unles
 * The head pointer is None, so the head pointer is set to the new node.
 * The head pointer is not None, so the code searches for the last node and aims its next pointer at the new node.
 
-See sample code [here](/Chapter/nodeManipulation.py)
+See sample code [here](/Chapter4/nodeManipulation.py)
 
 ### Removing at the Beginning
 ```pyhton
@@ -174,3 +174,57 @@ Removing an item at the end of an array requires constant time and memory unless
 1. There is just one node, the `head` pointer is set to None
 2. There is a node before the last node. THe code searches for this second to last node and sets its next pointer to None.
 
+### Inserting at Any Position
+Two cases:
+* That node's next pointer is None. This means that i>=n, so you should place the new item at the end of the linked structure.
+* That node's next pointer is not None. That means that 0<i<n, so you must place the new item between the node at position i-1 and the node at position i.
+
+To avoid going off the end of the linked structure in the search. Thus the loop has an additional condition to tests the current node's next poitner to see if it's the final node.
+```python
+if head is None or index<=0:
+    head = Node(newItem, head)
+else:
+    #Search for node at position index -1 or the last position
+    probe = head
+    while index>1 and probe.next!=None:
+        probe = probe.next
+        index-=1
+    probe.next=Node(newItem, probe.next) #make this new initialized node the next of probe, and original probe's next the next of this new initialized node.
+```
+
+### Removing at Any Position
+The removal of the `i`th item from a linked structure has three cases:
+* **i<=0** - You use the code to remove the first item
+* **0<i<n** - You search for the node at position i-1, as in insertion, and remove the following node. (and linke the next of removed node to the i-1 node)
+* **i>=n** - You remove the last node
+
+```python
+# Assumes that the linked structure has at least one item
+if index<=0 or head.next is None:
+    removedItem = head.data
+    head = head.next
+    return removedItem
+else: 
+    # Search for node at position index -1 or the next to last position
+    probe = head
+    while index>1 and probe.next.next!=None:
+        probe = probe.next
+        index-=1
+    removedItem = probe.next.data
+    probe.next = probe.next.next
+    return removed Item
+```
+
+### Complexity Trade-Off: Time, Space, and Singly Linked Structures
+|Operation|Running Time|
+|:--|:--|
+|Access at `i`th position|O(n), average case|
+|Repacement at `i`th postion|O(n), average case|
+|Insert at beginning|O(1), best and worst case|
+|Remove from beginning|O(1), best and worst case|
+|Insert at `i`th postion|O(n), average case|
+|Remove from `i`th postion|O(n), average case|
+
+
+## VARIATIONS ON A LINK
+### A Cirtular Linked Structure with a Dummy Header Node

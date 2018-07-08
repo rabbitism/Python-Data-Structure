@@ -228,3 +228,31 @@ else:
 
 ## VARIATIONS ON A LINK
 ### A Cirtular Linked Structure with a Dummy Header Node
+
+The insertion and removal of the first node are special cases as they head pointer must be reset. You can simplify these operations by using a circular linked sctructure with a dummy header node. The circular linked structure contains a link from the last node back to the first node in the structure. The dummy header has no value but servs as a marker for the beginning and the end of the linked structure. 
+
+Initialization
+```python
+head = Node(None, None)
+head.next = head
+```
+Search
+```python
+#Search for node at position index-1 or the last position
+probe = head
+while index>0 and probe.next!=head:
+    probe = probe.next
+    index-=1
+
+# Insert new node after node at position index-1 or last position
+probe.next = Node(newItem, probe.next)
+```
+
+THe advantage of this implementation is that the insertion and removal operations have only one case to consider - the case in which the ith node lies between a prior node and the current `i`th node. When the `i`th is the first node, the prior node is the header node. when i>=n, the last node is the prior node and the header is the next node. 
+
+### Doubly Linked Structure
+In addition to singly linked structure, allows the user to:
+* Move left, to the previous node, from a given node
+* Move immediately to the last node. 
+
+The Python implementation of a node class for doubly linked structure see sample code [here]().

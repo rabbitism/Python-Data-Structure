@@ -6,3 +6,9 @@ class Node(object):
         self.data = data
         self.next = next
 
+class TwoWayNode(Node):
+    def __init__(self, data, previous = Node, next  = None):
+        """Instantiates a Two Way Node"""
+        Node.__init__(self, data, next)
+        self.previous = previous
+
